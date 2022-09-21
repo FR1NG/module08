@@ -6,7 +6,7 @@
 /*   By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:13:03 by hchakoub          #+#    #+#             */
-/*   Updated: 2022/09/20 15:52:21 by hchakoub         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:39:04 by hchakoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 #define SPAN_HPP
 
 #include <iostream>
-#include <vector>
+#include <set>
 
 class Span {
 
 private:
-  unsigned int length;
-  unsigned int size;
+  unsigned int _length;
+  unsigned int _size;
+  std::multiset<int> _container;
 
 public:
   Span();
-  Span(const Span &span);
   Span(const unsigned int N);
-  Span &oprator = (const Span &span);
-  void addNumber(int number);
+  Span(const Span &span);
+  Span &operator=(const Span &span);
+  ~Span();
+
+  void addNumber(const int number);
+  int shortestSpan() const;
+  int longestSpan() const;
+  // for debug!
+  void printSpan() const;
 };
 
 #endif // !SPAN_HPP
