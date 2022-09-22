@@ -6,7 +6,7 @@
 /*   By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:18:10 by hchakoub          #+#    #+#             */
-/*   Updated: 2022/09/22 14:51:45 by hchakoub         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:12:27 by hchakoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,24 @@
 #include <list>
 
 int main() {
-  MutantStack<int> m;
 
-  m.push(5);
+  {
+    MutantStack<int> ms;
 
-  MutantStack<int> s(m);
+    ms.push(1337);
 
-  std::cout << "here " << *(s.begin()) << std::endl;
+    MutantStack<int> copyconstracted(ms);
+
+    MutantStack<int> assigned;
+
+    assigned = copyconstracted;
+
+    std::cout << "\033[1;32mtesting canonical form \033[0m" << std::endl;
+
+    std::cout << "element : " << *(ms.begin()) << std::endl;
+    std::cout << "========================================" << std::endl;
+  }
+
   {
     MutantStack<int> ms;
 
