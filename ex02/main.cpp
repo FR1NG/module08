@@ -6,15 +6,21 @@
 /*   By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:18:10 by hchakoub          #+#    #+#             */
-/*   Updated: 2022/09/22 14:22:50 by hchakoub         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:51:45 by hchakoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <list>
 
-int main()
-{
+int main() {
+  MutantStack<int> m;
+
+  m.push(5);
+
+  MutantStack<int> s(m);
+
+  std::cout << "here " << *(s.begin()) << std::endl;
   {
     MutantStack<int> ms;
 
@@ -25,7 +31,8 @@ int main()
     ms.push(1337);
     ms.push(42);
     ms.pop();
-    std::cout << "begin : " << *(ms.begin()) << " end : " << *(ms.rbegin()) << std::endl;
+    std::cout << "begin : " << *(ms.begin()) << " end : " << *(ms.rbegin())
+              << std::endl;
 
     std::cout << "\033[1;33miterating over MutantStack \033[0m" << std::endl;
 
@@ -45,7 +52,8 @@ int main()
     ms.push_back(1337);
     ms.push_back(42);
     ms.pop_back();
-    std::cout << "begin : " << *(ms.begin()) << " end : " << *(ms.rbegin()) << std::endl;
+    std::cout << "begin : " << *(ms.begin()) << " end : " << *(ms.rbegin())
+              << std::endl;
 
     std::cout << "\033[1;33miterating over list \033[0m" << std::endl;
 
